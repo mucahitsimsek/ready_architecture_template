@@ -6,6 +6,7 @@ import 'package:architecture_template/product/init/product_localization.dart';
 import 'package:architecture_template/product/utility/constants/enums/locales.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 
 part 'widget/home_app_bar.dart';
 
@@ -21,30 +22,38 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const _HomeAppBar(),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              ProductLocalization.updateLang(context, Locales.tr);
-            },
-            child: Text(
-              LocaleKeys.general_button_save,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ).tr(
-              args: ['Naber'],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                ProductLocalization.updateLang(context, Locales.tr);
+              },
+              child: Text(
+                LocaleKeys.general_button_save,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ).tr(
+                args: ['Naber'],
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              AppEnvironmentType.baseUrl.value;
-            },
-            child: Text(
-              AppEnvironmentType.baseUrl.value,
-            ).tr(
-              args: ['Naber'],
+            Assets.images.imgFlags.image(
+              package: 'gen',
             ),
-          ),
-        ],
+            Assets.icons.icLove.svg(
+              package: 'gen',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                AppEnvironmentType.baseUrl.value;
+              },
+              child: Text(
+                AppEnvironmentType.baseUrl.value,
+              ).tr(
+                args: ['Naber'],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
