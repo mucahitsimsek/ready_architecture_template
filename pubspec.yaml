@@ -29,7 +29,7 @@ dependencies:
   google_fonts: ^6.1.0
   kartal: ^3.4.4
   logger: ^2.0.2+1
-  vexana: 4.0.0-dev6
+  vexana: ^3.5.4
   widgets:
     path: module/widgets
 
@@ -43,7 +43,7 @@ dev_dependencies:
   riverpod_generator: ^2.0.0
   very_good_analysis: ^5.1.0
   auto_route_generator: ^7.3.2 
-  
+
 flutter_launcher_icons:
   android: true
   ios: true
