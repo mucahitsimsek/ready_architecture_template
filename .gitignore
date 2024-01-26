@@ -11,7 +11,7 @@
 migrate_working_dir/
 
 *.g.dart
-
+*.gr.dart
 *.env
 
 # IntelliJ related
