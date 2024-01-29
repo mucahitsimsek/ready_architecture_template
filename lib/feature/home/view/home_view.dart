@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:architecture_template/feature/home/view/mixin/home_view_mixin.dart';
 import 'package:architecture_template/product/init/config/app_environment.dart';
 import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/init/product_localization.dart';
@@ -9,6 +10,7 @@ import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:widgets/widgets.dart';
 
 part 'widget/home_app_bar.dart';
 
@@ -20,7 +22,7 @@ final class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with LoadingMixin, HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
