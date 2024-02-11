@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:gen/gen.dart';
 
 ///app environment
@@ -10,7 +9,7 @@ final class AppEnvironment {
 
   ///app general environment
   AppEnvironment.general() {
-    !kDebugMode ? _config = DevEnv() : _config = ProdEnv();
+    _config = ProdEnv();
   }
 
   static late final AppConfiguration _config;
