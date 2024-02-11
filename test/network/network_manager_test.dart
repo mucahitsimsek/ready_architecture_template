@@ -6,10 +6,10 @@ import 'package:gen/gen.dart';
 import 'package:vexana/vexana.dart';
 
 void main() {
-  late ProductServiceManager productServiceManager;
+  late ProductNetworkManager productServiceManager;
   setUp(() {
     AppEnvironment.general();
-    productServiceManager = ProductServiceManager.base();
+    productServiceManager = ProductNetworkManager.base();
   });
 
   test('get users from api', () async {

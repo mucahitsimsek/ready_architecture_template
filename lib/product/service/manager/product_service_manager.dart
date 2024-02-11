@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:vexana/vexana.dart';
 
 /// ProductServiceManager is a network manager class for product
-final class ProductServiceManager extends NetworkManager<EmptyModel> {
+final class ProductNetworkManager extends NetworkManager<EmptyModel> {
   /// [super.options] is a required parameter
-  ProductServiceManager.base()
+  ProductNetworkManager.base()
       : super(
           options: BaseOptions(
             baseUrl: AppEnvironmentItems.baseUrl.value,
