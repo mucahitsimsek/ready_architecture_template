@@ -29,5 +29,6 @@ class LoginService {
 
 @riverpod
 LoginService loginService(LoginServiceRef ref) {
+  ///Network manager için error handle yapılabilir
   return LoginService(ProductStateItems.networkManager);
 }
