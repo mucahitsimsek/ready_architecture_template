@@ -16,7 +16,7 @@ final class AppEnvironment {
 }
 
 ///Project environment type
-enum AppEnvironmentType {
+enum AppEnvironmentItems {
   ///Project base url
   baseUrl,
 
@@ -28,9 +28,9 @@ enum AppEnvironmentType {
   String get value {
     try {
       switch (this) {
-        case AppEnvironmentType.apiKey:
+        case AppEnvironmentItems.apiKey:
           return AppEnvironment._config.apiKey;
-        case AppEnvironmentType.baseUrl:
+        case AppEnvironmentItems.baseUrl:
           return AppEnvironment._config.baseUrl;
       }
     } catch (e) {

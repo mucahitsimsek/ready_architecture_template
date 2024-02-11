@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:architecture_template/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:architecture_template/product/init/config/app_environment.dart';
 import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/init/product_localization.dart';
 import 'package:architecture_template/product/utility/constants/enums/locales.dart';
@@ -46,16 +45,6 @@ class _HomeViewState extends State<HomeView> with LoadingMixin, HomeViewMixin {
             ),
             Assets.icons.icLove.svg(
               package: 'gen',
-            ),
-            ElevatedButton(
-              onPressed: () {
-                AppEnvironmentType.baseUrl.value;
-              },
-              child: Text(
-                AppEnvironmentType.baseUrl.value,
-              ).tr(
-                args: ['Naber'],
-              ),
             ),
             const CustomNetworkImage(
               imageUrl: 'https://picsum.photos/250?image=9',
