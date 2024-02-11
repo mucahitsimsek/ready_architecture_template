@@ -7,12 +7,15 @@ import 'package:architecture_template/product/init/theme/custom_light_theme.dart
 import 'package:architecture_template/product/navigation/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
   await AppInitialize().make();
   runApp(
-    ProductLocalization(
-      child: const _MyApp(),
+    ProviderScope(
+      child: ProductLocalization(
+        child: const _MyApp(),
+      ),
     ),
   );
 }

@@ -1,7 +1,11 @@
 import 'package:architecture_template/product/service/manager/index.dart';
 import 'package:architecture_template/product/service/manager/service_path.dart';
+import 'package:architecture_template/product/state/container/index.dart';
 import 'package:gen/gen.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:vexana/vexana.dart';
+
+part 'login_service.g.dart';
 
 ///LoginService is a network manager class for product
 class LoginService {
@@ -21,4 +25,9 @@ class LoginService {
 
     return response.data ?? [];
   }
+}
+
+@riverpod
+LoginService loginService(LoginServiceRef ref) {
+  return LoginService(ProductStateItems.networkManager);
 }

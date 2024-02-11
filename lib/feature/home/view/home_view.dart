@@ -1,22 +1,25 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:architecture_template/feature/home/view/mixin/home_view_mixin.dart';
+import 'package:architecture_template/product/service/login_service.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gen/gen.dart';
 import 'package:widgets/widgets.dart';
 
 part 'widget/home_app_bar.dart';
 
 @RoutePage(name: 'HomeRoute')
-final class HomeView extends StatefulWidget {
+class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with LoadingMixin, HomeViewMixin {
+class _HomeViewState extends ConsumerState<HomeView>
+    with LoadingMixin, HomeViewMixin {
   List<User> users = <User>[];
 
   @override
@@ -28,7 +31,8 @@ class _HomeViewState extends State<HomeView> with LoadingMixin, HomeViewMixin {
           children: [
             TextButton(
               onPressed: () async {
-                users = await loginService.users();
+                final deg = ref.read(loginServiceProvider);
+                users = await deg.users();
                 setState(() {});
               },
               child: const Text('get'),
