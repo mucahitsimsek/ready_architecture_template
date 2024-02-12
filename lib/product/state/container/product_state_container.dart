@@ -1,4 +1,5 @@
-import 'package:architecture_template/product/service/manager/product_service_manager.dart';
+import 'package:architecture_template/product/service/manager/product_network_manager.dart';
+import 'package:architecture_template/product/state/view_model/product_viev_model.dart';
 import 'package:get_it/get_it.dart';
 
 /// ProductStateContainer is a dependency injection class for product
@@ -10,7 +11,10 @@ final class ProductStateContainer {
   ///Product core required network manager
   static void setup() {
     _getIt
-        .registerSingleton<ProductNetworkManager>(ProductNetworkManager.base());
+      ..registerSingleton<ProductNetworkManager>(ProductNetworkManager.base())
+      ..registerLazySingleton<ProductViewModel>(
+        ProductViewModel.new,
+      );
   }
 
   static T read<T extends Object>() => _getIt<T>();

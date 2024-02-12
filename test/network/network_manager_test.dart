@@ -1,5 +1,5 @@
 import 'package:architecture_template/product/init/config/app_environment.dart';
-import 'package:architecture_template/product/service/manager/product_service_manager.dart';
+import 'package:architecture_template/product/service/manager/product_network_manager.dart';
 import 'package:architecture_template/product/service/manager/service_path.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gen/gen.dart';

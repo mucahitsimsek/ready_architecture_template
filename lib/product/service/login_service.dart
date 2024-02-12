@@ -1,21 +1,18 @@
-import 'package:architecture_template/product/service/manager/index.dart';
+import 'package:architecture_template/product/service/interface/authantication_opeartion.dart';
 import 'package:architecture_template/product/service/manager/service_path.dart';
-import 'package:architecture_template/product/state/container/index.dart';
 import 'package:gen/gen.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:vexana/vexana.dart';
 
-part 'login_service.g.dart';
-
 ///LoginService is a network manager class for product
-class LoginService {
+class LoginService extends AuthanticationOperation {
   ///LoginService is a network manager class for product
-  LoginService(ProductNetworkManager productNetworkManager)
-      : _networkManager = productNetworkManager;
+  LoginService(INetworkManager<EmptyModel> networkManager)
+      : _networkManager = networkManager;
 
-  final ProductNetworkManager _networkManager;
+  final INetworkManager _networkManager;
 
   ///LoginService is a network manager class for product
+  @override
   Future<List<User>> users() async {
     final response = await _networkManager.send<User, List<User>>(
       ProductServicePath.posts.value,
@@ -25,10 +22,4 @@ class LoginService {
 
     return response.data ?? [];
   }
-}
-
-@riverpod
-LoginService loginService(LoginServiceRef ref) {
-  ///Network manager için error handle yapılabilir
-  return LoginService(ProductStateItems.networkManager);
 }

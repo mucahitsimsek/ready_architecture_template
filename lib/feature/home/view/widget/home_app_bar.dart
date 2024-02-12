@@ -6,10 +6,28 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Home'),
+      actions: const [
+        _Loading(),
+      ],
     );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+///Loading
+final class _Loading extends StatelessWidget {
+  ///Loading constructor
+  const _Loading();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeViewModel, HomeState>(
+      builder: (context, state) {
+        if (!state.isLoading) return const SizedBox.shrink();
+        return const CircularProgressIndicator.adaptive();
+      },
+    );
+  }
 }
